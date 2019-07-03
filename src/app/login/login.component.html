@@ -1,0 +1,35 @@
+
+<!-- <div style="text-align:center">
+    <h1>
+      {{ title }}!
+    </h1>
+    
+    <input type="text" placeholder="email" name="" [(ngModel)]="data.email"> <br/><br/>
+    <input type="password" placeholder="team" name="" [(ngModel)]="data.team"> <br/><br/>
+    <input type="button" name="login" value="Login here!" (click)="doLogin(data)" > 
+
+  </div> -->
+
+
+  <form [formGroup]="myForm"  (ngSubmit)="doLogin(myForm.value)">
+    <input formControlName="email" class="form-control"  placeholder="Your email" required ><br><br><br><br>
+  
+  
+    <div *ngIf="myForm.get('email').hasError('required') && myForm.get('email').hasError('pattern')">
+      Oops, please enter your email
+    </div>
+  
+    <input formControlName="team" class="form-control" placeholder="Your team"><br><br><br><br>
+  
+    <div *ngIf="myForm.controls.team.hasError('pattern')">
+      Oops, wrong pattern buddy!
+    </div>
+  
+    
+  
+    <button type="submit" class="btn btn-primary" [disabled]="myForm.invalid" >
+      Login
+    </button>
+    
+  </form>
+
