@@ -4,13 +4,17 @@
 
 <ul  class="nav">
   <li class="nav-item">
-  <a routerLink="/login" routerLinkActive="active">Login</a> | 
+  <a routerLink="/login" routerLinkActive="active" *ngIf='!show'>Login</a> | 
       </li>
       <li class="nav-item">
-      <a routerLink="/signup" routerLinkActive="active">Sign up</a> 
+      <a routerLink="/signup" routerLinkActive="active"  *ngIf='!show'>Sign up</a> 
     </li>
       <!-- <a routerLink="/employeedetails" routerLinkActive="active">Employee details</a>  -->
-   </ul>
+      <li class="nav-item"  *ngIf='show'>
+        <button class="btn btn-danger" (click)='logOut()'>Log Out</button>
+      </li>
+   
+    </ul>
 
     <!-- <div>
       <carousel>

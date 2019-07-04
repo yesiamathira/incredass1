@@ -1,12 +1,44 @@
 
 
-<div >
+<!-- <div >
     <input type="text" class="form-control" name="name" [(ngModel)]="name" placeholder="name"><br><br>
     <input type="text"  class="form-control" name="team" [(ngModel)]="team" placeholder="team"><br><br>
     <input type="number" class="form-control" name="age" [(ngModel)]="age" placeholder="age"><br><br>
     <input type="text" class="form-control" name="email" [(ngModel)]="email" placeholder="email"><br><br>
     
     <input type="button" class="btn btn-primary" name="add" value="Add Employee" (click)="addEmployee({'name':name,'team':team,'age':age,'email':email})" >
-</div>
+</div> -->
+
+<form [formGroup]="myForm"  (ngSubmit)="addEmployee(myForm.value)">
+    <label>
+      <p class="label-txt">ENTER YOUR NAME</p>
+      <input type="text" class="input"  formControlName="name" appNameValid>
+      <div class="line-box">
+        <div class="line"></div>
+      </div>
+    </label>
+    <label>
+      <p class="label-txt">ENTER YOUR TEAM</p>
+      <input type="text" class="input"  formControlName="team" appNameValid>
+      <div class="line-box">
+        <div class="line"></div>
+      </div>
+    </label>
+    <label>
+      <p class="label-txt">ENTER YOUR AGE</p>
+      <input type="text" class="input"  formControlName="age">
+      <div class="line-box">
+        <div class="line"></div>
+      </div>
+    </label>
+    <label>
+        <p class="label-txt">ENTER YOUR EMAIL</p>
+        <input type="text" class="input"  formControlName="email">
+        <div class="line-box">
+          <div class="line"></div>
+        </div>
+      </label>
+    <button type="submit">submit</button>
+  </form>
 
 

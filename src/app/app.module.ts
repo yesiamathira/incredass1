@@ -13,6 +13,7 @@ import {MatListModule} from '@angular/material/list';
 import {MatTableModule} from '@angular/material/table';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EditemployeeComponent } from './editemployee/editemployee.component';
+import { NameValidDirective } from './name-valid.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,8 @@ import { EditemployeeComponent } from './editemployee/editemployee.component';
     MenuComponent,
     EmployeedetailsComponent,
     ErrorComponent,
-    EditemployeeComponent
+    EditemployeeComponent,
+    NameValidDirective
   ],
   imports: [
     BrowserModule,

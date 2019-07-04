@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EmployeeService {
-
+  private logInStatus=new BehaviorSubject(false);
+  currentlogInStatus=this.logInStatus.asObservable();
 employee:{name:string,team:string,age:number,email:string};
   
 employees=[{
@@ -81,6 +83,14 @@ employees=[{
 
 getEmployees(){
   return this.employees;
+}
+
+updateLoginStatus(value:boolean){
+  this.logInStatus.next(value);
+}
+
+getEmployeeByName(name){
+  return this.employees.find((ele)=> ele.name == name);
 }
 
 addEmployee(employee){

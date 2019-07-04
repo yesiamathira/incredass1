@@ -11,7 +11,7 @@
   </div> -->
 
 
-  <form [formGroup]="myForm"  (ngSubmit)="doLogin(myForm.value)">
+  <!-- <form [formGroup]="myForm"  (ngSubmit)="doLogin()">
     <input formControlName="email" class="form-control"  placeholder="Your email" required ><br><br><br><br>
   
   
@@ -25,11 +25,35 @@
       Oops, wrong pattern buddy!
     </div>
   
-    
-  
-    <button type="submit" class="btn btn-primary" [disabled]="myForm.invalid" >
+    <button type="submit" class="btn btn-primary" >
       Login
     </button>
     
-  </form>
+  </form> -->
+
+
+  <div class="container login-container">
+    <div class="row">
+        <div class="col-md-6 login-form-1"  >
+            <h3>Login  Form </h3>
+            <form [formGroup]="myForm"  (ngSubmit)="doLogin()">
+                <div class="form-group">
+                    <input type="text" class="form-control" formControlName="email" placeholder="Your Email" value="" />
+                    <div *ngIf="myForm.controls.email.hasError('required') && myForm.controls.email.hasError.dirty">
+                      Oops, wrong pattern of email buddy!
+                    </div>
+                
+                  </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" formControlName="team" placeholder="Your team" value="" />
+                    <div *ngIf="myForm.get('team').hasError('required') && myForm.get('team').dirty">
+                      Oops, please enter your team!
+                    </div>
+                  </div>
+                <div class="form-group">
+                    <input type="submit" class="btnSubmit" value="Login" />
+                </div>
+                
+            </form>
+        </div>
 

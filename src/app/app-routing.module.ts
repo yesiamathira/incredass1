@@ -22,7 +22,7 @@ const routes: Routes = [
     component: MenuComponent
   },
   {
-    path: "editemployee",
+    path: "editemployee/:name",
     component: EditemployeeComponent
   },
   {

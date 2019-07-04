@@ -1,4 +1,3 @@
-
 <!--  
 <mat-list *ngFor="let employee of employees">
     <mat-list-item> {{employee.name}} </mat-list-item>
@@ -8,26 +7,31 @@
    </mat-list> -->
 
 
-   <!-- <table mat-table [dataSource]="employees">
+<!-- <table mat-table [dataSource]="employees">
     <ng-container matColumnDef="Employee data">
         <th mat-header-cell *matHeaderCellDef> Name </th>
         <td mat-cell *matCellDef="let employee"> {{employee.name}} </td>
       </ng-container>
   </table> -->
 
-  <table style="width:100%" class="table" border-collapse: collapse>
-    <thead>
-      <th width="25%">Name</th>
-      <th width="25%">Team</th>
-      <th width="25%">Age</th> 
-      <th width="25%">Email</th>
-      
-   </thead>
-    <tbody *ngFor="let employee of employees">
-      <td width="25%">{{employee.name}} </td>
+<table style="width:100%" class="table" border-collapse: collapse>
+  <thead>
+    <th width="25%">Name</th>
+    <th width="25%">Team</th>
+    <th width="25%">Age</th>
+    <th width="25%">Email</th>
+
+  </thead>
+  <tbody>
+    <tr *ngFor="let employee of employees">
+       <td width="25%"><a (click)="onEdit(employee.name)" >{{employee.name}}</a> </td> 
+      <!-- <td width="25%">{{employee.naame}}</td> -->
+      <!-- routerLink='/editemployee' -->
       <td width="25%">{{employee.team}}</td>
       <td width="25%">{{employee.age}}</td>
       <td width="25%">{{employee.email}}</td>
-    
-    </tbody>
+    </tr>
+
+
+  </tbody>
 </table>

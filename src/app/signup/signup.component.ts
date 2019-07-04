@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeeService} from '../employee.service';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -8,18 +9,26 @@ import { EmployeeService} from '../employee.service';
 export class SignupComponent implements OnInit {
   // employee:{name:string,team:string,age:number,email:string}={name:"aditya", team:'IT', age:12, email:'string email'};
   employees=this.employeeservice.getEmployees();
-  constructor(private employeeservice:EmployeeService) { }
+  myForm;
+   
+  constructor(private employeeservice:EmployeeService,private fb:FormBuilder) { }
 
 
-  addEmployee(emp){
-this.employeeservice.addEmployee(emp);
+  addEmployee(data){
+this.employeeservice.addEmployee(data);
 this.employeeservice.getEmployees();
 console.log(this.employeeservice.getEmployees())
   }
   ngOnInit() {
   
-  console.log(this.employeeservice.getEmployees())
+  console.log(this.employeeservice.getEmployees());
+  this.myForm = this.fb.group({
+    email: ['', Validators.compose([Validators.required,Validators.email])],
+    team: '',
+    name:'',
+    age:''
+  });
   }
-
+  
 
 }
